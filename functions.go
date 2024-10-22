@@ -246,7 +246,7 @@ func (o *object) GetListSlim(arg *ArgumentWithPegination) (GetListClientApiRespo
 		limit = 10
 	}
 
-	url = fmt.Sprintf("%s&data=%s&offset=%d&limit=%d", url, string(reqObject), (page-1)*limit, limit)
+	url = fmt.Sprintf("%s&data=%s&offset=%d&limit=%d&block_cached=%t", url, string(reqObject), (page-1)*limit, limit, arg.Request.BlockCache)
 
 	var appId = o.config.AppId
 	if arg.AppId != "" {
